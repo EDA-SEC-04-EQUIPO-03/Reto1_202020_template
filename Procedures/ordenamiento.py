@@ -41,7 +41,7 @@ def hallar_elementos(lst, criteria1, criteria2, column1, column2):
         #Hallar pelis con count vote mayores
         iterator3=it.newIterator(lst)
         nombres_count_vote=[]
-        while it.hasNext(iterator3)
+        while it.hasNext(iterator3):
             element3=it.next[iterator3]
             for valor in ranking:
                 if  valor == element3[column1] and element3["original_tittle"] not in nombres_count_vote:
