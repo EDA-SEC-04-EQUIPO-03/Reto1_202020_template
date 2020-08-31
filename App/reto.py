@@ -34,6 +34,7 @@ from ADT import list as lt
 from DataStructures import listiterator as it
 from DataStructures import liststructure as lt
 from Procedures import ConocerUnDirector as cud
+from Procedures import ordenamiento as o
 
 from time import process_time 
 
@@ -62,8 +63,6 @@ def compareRecordIds (recordA, recordB):
         return 1
     return -1
 
-
-
 def loadCSVFile (file, cmpfunction):
     lst=lt.newList("ARRAY_LIST", cmpfunction)
     dialect = csv.excel()
@@ -77,7 +76,6 @@ def loadCSVFile (file, cmpfunction):
         print("Hubo un error con la carga del archivo")
     return lst
 
-
 def loadMovies ():
     lst = loadCSVFile("theMoviesdb/SmallMoviesDetailsCleaned.csv",compareRecordIds) 
     print("Datos cargados, " + str(lt.size(lst)) + " elementos cargados")
@@ -88,7 +86,6 @@ def loadMovies2 ():
     print("Datos cargados, " + str(lt.size(lst)) + " elementos cargados")
     return lst
 
-
 def main():
     """
     Método principal del programa, se encarga de manejar todos los metodos adicionales creados
@@ -97,8 +94,6 @@ def main():
     Args: None
     Return: None 
     """
-
-
     while True:
         printMenu() #imprimir el menu de opciones en consola
         inputs =input('Seleccione una opción para continuar\n') #leer opción ingresada
@@ -109,8 +104,13 @@ def main():
                 lstmovies2 = loadMovies2()
 
             elif int(inputs[0])==2: #opcion 2
-                pass
-
+                criteria1 =input('Ingrese el criterio de búsqueda #1\n') 
+                criteria2 =input('Ingrese el criterio de búsqueda #2\n') 
+                entrada=input("Ingrese ´+´ si desea un orden ascendente y ´-´ si desea un orden descendente")
+                pelis=o.hallar_elementos(lst, criteria1, criteria2, "vote_count", "vote_average")
+                orden=o.ordenar(lst, entrada)
+                print("Las pelis halladas son: "+ pelis)
+                
             elif int(inputs[0])==3: #opcion 3
                 nd = str(input("Ingrese el nombre de un director\n"))
                 print(cud.conocer_director(nd,lstmovies,lstmovies2))
