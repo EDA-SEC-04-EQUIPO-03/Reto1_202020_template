@@ -72,7 +72,7 @@ def loadCSVFile (file, cmpfunction):
             row = csv.DictReader(csvfile, dialect=dialect)
             for elemento in row: 
                 lt.addLast(lst,elemento)
-    except:p
+    except:
         print("Hubo un error con la carga del archivo")
     return lst
 
