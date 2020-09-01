@@ -108,7 +108,7 @@ def main():
                 criteria2 =input('Ingrese el criterio de búsqueda #2\n') 
                 entrada=input("Ingrese ´+´ si desea un orden ascendente y ´-´ si desea un orden descendente")
                 pelis=o.hallar_elementos(lstmovies, criteria1, criteria2, "vote_count", "vote_average")
-                # En caso de ordenar o.ordenamiento(pelis,entrada)
+                #En caso de ordenar o.ordenamiento(pelis,entrada)
                 print("Las pelis halladas son: "+ pelis)
                 
             elif int(inputs[0])==3: #opcion 3

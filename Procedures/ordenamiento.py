@@ -12,51 +12,33 @@ def hallar_elementos(lst, criteria1, criteria2, column1, column2):
         return 0
     else:
         #Hallar 10 vote_count mayores
-        print("proceso 1")
+        #proceso 1
         t1_start = process_time()
         iterator = it.newIterator(lst)
-        ranking=[] 
+        ranking={"primero":0,"segundo":0,"tercero":0,"cuarto":0,"quinto":0,"sexto":0,
+                "septimo":0,"octavo":0,"noveno":0,"decimo":0}
         while  it.hasNext(iterator):
             element = it.next(iterator)
-            if criteria1.lower() in element[column1]:
+            if criteria1.lower() in element[column1] and element["original_tittle"] not in ranking:
                 # Otra opción es crear un TAD (línea 18), agregar los valores filtrados y utilizar la función ordenar
-                ranking.append(element[column1])
-        ranking.sort()
-        ranking.reverse()
-        if len(ranking)>10:
-            while len(ranking)!=10:
-                del ranking[-1]
+                for cada_llave in ranking:
+                    if ranking[cada_llave] < element[column1]:
+                        del ranking[cada_llave]
+                        ranking[column1["original_tittle"]]=element[column1]
         #Hallar 5 vote_average menores
-        print("proceso 2")
+        #proceso 2
         iterator2 = it.newIterator(lst)
-        avg=[]
-        while it.hasNext(iterator2):
+        avg={"primero":0,"segundo":0,"tercero":0,"cuarto":0,"quinto":0}
+        while it.hasNext(iterator2) and element["original_tittle"] not in avg:
             element2 = it.next(iterator2)
             if criteria2.lower() in element2[column2]:
-                avg.append(element2[column2])
-        avg.sort()
-        if len(avg)>5:
-            while len(avg)!=5:
-                del avg[-1]
-        #Hallar pelis con count vote mayores
-        iterator3=it.newIterator(lst)
-        nombres_count_vote=[]
-        while it.hasNext(iterator3):
-            element3=it.next[iterator3]
-            for valor in ranking:
-                if  valor == element3[column1] and element3["original_tittle"] not in nombres_count_vote:
-                    nombres_count_vote.append(element3["original_tittle"])
-        #Hallar pelis con count vote mayores
-        iterator4=it.newIterator(lst)
-        nombres_vote_avg=[]
-        while it.hasNext(iterator4):
-            element4=it.next[iterator4]
-            for dato in avg:
-                if  dato == element4[column2] and element4["original_tittle"] not in nombres_vote_avg:
-                    nombres_vote_avg.append(element4["original_tittle"])
+                for cada_llave in avg:
+                    if avg[cada_llave] < elemen2[column2]:
+                        del avg[cada_llave]
+                        avg[column2["original_tittle"]]=element2[column2]
         t1_stop = process_time() #tiempo final
         print("Tiempo de ejecución ",t1_stop-t1_start," segundos")
-    return ("Las pelis con mayor número de votaciones son: " +nombres_count_vote+ " además las pelis con menor promedio de votoso son: "+ nombres_vote_avg)
+    return (ranking, avg)
 
 def ordenar( lst, entrada):
     #Los elementos vienen ordenados desde la función anterior :( 
