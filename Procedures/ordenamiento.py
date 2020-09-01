@@ -1,6 +1,7 @@
 import config as cf
 import sys
 import csv
+from Sorting import shellsort as sh
 from ADT import list as lt
 from DataStructures import listiterator as it
 from DataStructures import liststructure as lt
@@ -33,15 +34,15 @@ def hallar_elementos(lst, criteria1, criteria2, column1, column2):
             element2 = it.next(iterator2)
             if criteria2.lower() in element2[column2]:
                 for cada_llave in avg:
-                    if avg[cada_llave] < elemen2[column2]:
+                    if avg[cada_llave] < element2[column2]:
                         del avg[cada_llave]
                         avg[column2["original_tittle"]]=element2[column2]
+        
         t1_stop = process_time() #tiempo final
         print("Tiempo de ejecución ",t1_stop-t1_start," segundos")
     return (ranking, avg)
 
 def ordenar( lst, entrada):
-    #Los elementos vienen ordenados desde la función anterior :( 
     if "+" in entrada: 
         sort.ShellSort(lst, less)
     else:
