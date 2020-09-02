@@ -86,6 +86,16 @@ def loadMovies2 ():
     print("Datos cargados, " + str(lt.size(lst)) + " elementos cargados")
     return lst
 
+def loadMovies3 ():
+    lst = loadCSVFile("theMoviesdb/AllMoviesDetailsCleaned-large.csv",compareRecordIds) 
+    print("Datos cargados, " + str(lt.size(lst)) + " elementos cargados")
+    return lst
+
+def loadMovies4 ():
+    lst = loadCSVFile("theMoviesdb/AllMoviesCastingRaw-large.csv",compareRecordIds) 
+    print("Datos cargados, " + str(lt.size(lst)) + " elementos cargados")
+    return lst
+
 def main():
     """
     Método principal del programa, se encarga de manejar todos los metodos adicionales creados
@@ -102,14 +112,14 @@ def main():
             if int(inputs[0])==1: #opcion 1
                 lstmovies = loadMovies()
                 lstmovies2 = loadMovies2()
+                large_movies = loadMovies3()
+                large_movies2 = loadMovies4()
 
             elif int(inputs[0])==2: #opcion 2
-                criteria1 =input('Ingrese el criterio de búsqueda #1\n') 
-                criteria2 =input('Ingrese el criterio de búsqueda #2\n') 
-                entrada=input("Ingrese ´+´ si desea un orden ascendente y ´-´ si desea un orden descendente\n")
-                pelis=o.hallar_elementos(lstmovies, criteria1, criteria2, "vote_count", "vote_average")
-                #En caso de ordenar o.ordenamiento(pelis,entrada)
-                print("Las pelis halladas son: "+ pelis)
+                criterio =input('Ingrese el criterio de ordenamiento, ya sea ´Count´ o ´Average´\n') 
+                entry=input("Ingrese ´+´ si desea un orden ascendente y ´-´ si desea un orden descendente\n")
+                lista_de_pelis=o.hallar_elementos(lstmovies, entry, criterio)
+                print("Las pelis halladas según los criterios de orden son: "+ lista_de_pelis)
                 
             elif int(inputs[0])==3: #opcion 3
                 nd = str(input("Ingrese el nombre de un director\n"))
