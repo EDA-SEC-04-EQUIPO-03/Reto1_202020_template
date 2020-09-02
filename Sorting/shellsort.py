@@ -23,7 +23,6 @@
 
 import config as cf
 from ADT import list as lt
-
 """
 Implementación del algoritmo shellsort, basado en la propuesta de Robert Sedgewick
 

@@ -23,12 +23,22 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-def less(element1, element2):
-    if int(element1['id']) < int(element2['id']):
+def lessCount(element1, element2):
+    if int(element1["vote_count"]) < int(element2["vote_count"]):
         return True
     return False
 
-def greater(element1, element2):
-    if int(element1['id']) > int(element2['id']):
+def greaterCount(element1, element2):
+    if int(element1["vote_count"]) > int(element2["vote_count"]):
+        return True 
+    return False
+
+def lessAvg(element1, element2):
+    if float(element1["vote_average"]) < float(element2["vote_average"]):
+        return True
+    return False
+
+def greaterAvg(element1, element2):
+    if float(element1["vote_average"]) > float(element2["vote_average"]):
         return True 
     return False
