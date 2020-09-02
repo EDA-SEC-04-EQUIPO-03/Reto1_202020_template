@@ -112,7 +112,7 @@ def main():
         if len(inputs)>0:
 
             if int(inputs[0])==1: #opcion 1
-                lstmovies = loadMovies()
+                lstmovies = loadMovies() 
                 lstmovies2 = loadMovies2()
                 large_movies = loadMovies3()
                 large_movies2 = loadMovies4()
@@ -121,7 +121,7 @@ def main():
                 criterio =input('Ingrese el criterio de ordenamiento, ya sea ´Count´ o ´Average´\n') 
                 entry=input("Ingrese ´+´ si desea un orden ascendente y ´-´ si desea un orden descendente\n")
                 lista_de_pelis=o.hallar_elementos(lstmovies, entry, criterio)
-                print("Las pelis halladas según los criterios de orden son: "+ lista_de_pelis)
+                print("Las pelis halladas según los criterios de orden son: "+ str(lista_de_pelis))
                 
             elif int(inputs[0])==3: #opcion 3
                 nd = str(input("Ingrese el nombre de un director\n"))
